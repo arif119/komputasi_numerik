@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#materi-i-deret-mclaurin" class="nav-link">MATERI I Deret MCLAURIN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#materi-ii-numerical-solution" class="nav-link">MATERI II Numerical Solution</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#method-bisection" class="nav-link">Method Bisection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#metode-regula-falsi" class="nav-link">Metode Regula Falsi</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#metode-newton-raphson" class="nav-link">Metode Newton Raphson</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#metode-secant" class="nav-link">Metode Secant</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>KOMPUTASI NUMERIK
+nama : M. Arif Mahfud Rian Setiawan</p>
+<p>Nim :180411100061</p>
+<h1 id="materi-i-deret-mclaurin">MATERI I Deret MCLAURIN</h1>
+<p>Suatu fungsi f(x) yang memiliki turunan <img alt="f'(x)" src="https://s0.wp.com/latex.php?latex=f%27%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="f''(x)" src="https://s0.wp.com/latex.php?latex=f%27%27%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="f'''(x)" src="https://s0.wp.com/latex.php?latex=f%27%27%27%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, dan seterusnya yang kontinyu dalam interval <img alt="I" src="https://s0.wp.com/latex.php?latex=I&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> dengan <img alt="a, x \in I" src="https://s0.wp.com/latex.php?latex=a%2C+x+%5Cin+I&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> maka untuk <img alt="x" src="https://s0.wp.com/latex.php?latex=x&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> disekitar <img alt="a" src="https://s0.wp.com/latex.php?latex=a&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> yaitu <img alt="|x -a| &lt; \mathbb{R}" src="https://s0.wp.com/latex.php?latex=%7Cx+-a%7C+%3C+%5Cmathbb%7BR%7D&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="f(x)" src="https://s0.wp.com/latex.php?latex=f%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> dapat diekspansi kedalam Deret Taylor</p>
+<p>Definisi.</p>
+<p><img alt="f(x) = f(a) + \dfrac{(x-a)}{1!} f'(a) + \dfrac{(x-a)^2}{2!} f''(a) + \ldots + \dfrac{(x-a)^n}{n!} f^{(n)}(a) + \ldots + R_n(x)" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+f%28a%29+%2B+%5Cdfrac%7B%28x-a%29%7D%7B1%21%7D+f%27%28a%29+%2B+%5Cdfrac%7B%28x-a%29%5E2%7D%7B2%21%7D+f%27%27%28a%29+%2B+%5Cldots+%2B+%5Cdfrac%7B%28x-a%29%5En%7D%7Bn%21%7D+f%5E%7B%28n%29%7D%28a%29+%2B+%5Cldots+%2B+R_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= f(a) + \displaystyle \sum_{k=1}^n \dfrac{(x-a)^k}{k!} f^{(k)} (a) + R_n(x)" src="https://s0.wp.com/latex.php?latex=%3D+f%28a%29+%2B+%5Cdisplaystyle+%5Csum_%7Bk%3D1%7D%5En+%5Cdfrac%7B%28x-a%29%5Ek%7D%7Bk%21%7D+f%5E%7B%28k%29%7D+%28a%29+%2B+R_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= T_n(x) + R_n(x)" src="https://s0.wp.com/latex.php?latex=%3D+T_n%28x%29+%2B+R_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>dengan <img alt="T_n(x)" src="https://s0.wp.com/latex.php?latex=T_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> adalah Deret Taylor dan <img alt="R_n(x)" src="https://s0.wp.com/latex.php?latex=R_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> adalah sisa.</p>
+<p>dimana <img alt="R_n(x) = \dfrac{(x-a)^{n+1}}{(n+1)!} f^{(n+1)}(c)" src="https://s0.wp.com/latex.php?latex=R_n%28x%29%C2%A0%3D+%5Cdfrac%7B%28x-a%29%5E%7Bn%2B1%7D%7D%7B%28n%2B1%29%21%7D+f%5E%7B%28n%2B1%29%7D%28c%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>Dalam kasus khusus jika <img alt="a = 0" src="https://s0.wp.com/latex.php?latex=a+%3D+0&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, maka disebut Deret MacLaurin atau sering disebut Deret Taylor baku. Dan didefinisikan sebagai berikut</p>
+<p>Definisi.</p>
+<p><img alt="f(x) = f(0) + \dfrac{x}{1!} f'(0) + \dfrac{x^2}{2!} f''(0) + \ldots + \dfrac{x^n}{n!} f^{(n)}(0) + \ldots + R_n(x)" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+f%280%29+%2B+%5Cdfrac%7Bx%7D%7B1%21%7D+f%27%280%29+%2B+%5Cdfrac%7Bx%5E2%7D%7B2%21%7D+f%27%27%280%29+%2B+%5Cldots+%2B+%5Cdfrac%7Bx%5En%7D%7Bn%21%7D+f%5E%7B%28n%29%7D%280%29+%2B+%5Cldots+%2B+R_n%28x%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>Deret Taylor atau Deret MacLaurin ini sangat bermanfaat dalam <a href="https://aimprof08.wordpress.com/2012/09/02/kenapa-metode-numerik/">metode numerik</a> untuk menghitung atau menghampiri nilai-nilai fungsi yang susah dihitung secara manual seperti nilai <img alt="\sin x" src="https://s0.wp.com/latex.php?latex=%5Csin+x&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="\cos x" src="https://s0.wp.com/latex.php?latex=%5Ccos+x&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="e^x" src="https://s0.wp.com/latex.php?latex=e%5Ex&amp;bg=ffffff&amp;fg=666666&amp;s=0" />, <img alt="\log x" src="https://s0.wp.com/latex.php?latex=%5Clog+x&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> atau <img alt="\ln (x + 1)" src="https://s0.wp.com/latex.php?latex=%5Cln+%28x+%2B+1%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" />. Tentu kita tidak akan bisa menghitung nilai-nilai fungsi tersebut tanpa menggunakan bantuan kalkulator atau tabel. Dalam tulisan ini saya akan mencoba untuk mendekati fungsi-fungsi tersebut menggunakan Deret MacLaurin.</p>
+<p><img alt="f(x) = e^x" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+e%5Ex&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>f'(x) = ex <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 1</p>
+<p>f”(x) = ex <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”(0) = 1</p>
+<p>f”'(x) = ex <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”'(0) = 1</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>f(n)(x) = ex <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(n)(0) = 1</p>
+<p><img alt="f(x) = 1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \ldots + \dfrac{x^n}{n!} 1" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+1+%2B+%5Cdfrac%7Bx%7D%7B1%21%7D+%2B+%5Cdfrac%7Bx%5E2%7D%7B2%21%7D+%2B+%5Cldots+%2B+%5Cdfrac%7Bx%5En%7D%7Bn%21%7D+1&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= \displaystyle \sum_{n=0}^{\infty} \dfrac{1}{n!} x^n" src="https://s0.wp.com/latex.php?latex=%3D+%5Cdisplaystyle+%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D+%5Cdfrac%7B1%7D%7Bn%21%7D+x%5En&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="f(x) = \sin x" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+%5Csin+x&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>f(0) = 0</p>
+<p>f'(x) = cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 1</p>
+<p>f”(x) = -sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”(0) = 0</p>
+<p>f”'(x) = -cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”'(0) = -1</p>
+<p>f(iv)(x) = sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(iv)(0) = 0</p>
+<p>f(v)(x) = cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(v)(0) = 1</p>
+<p>f(vi)(x) = -sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(vi)(0) = 0</p>
+<p>f(vii)(x) = -cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(vii)(0) = -1</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>f(x) = 0 + <img alt="\frac{x}{1!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%7D%7B1%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (1) + <img alt="\frac{x^2}{2!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E2%7D%7B2%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (0) + <img alt="\frac{x^3}{3!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E3%7D%7B3%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (-1) + <img alt="\frac{x^4}{4!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E4%7D%7B4%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (0) + <img alt="\frac{x^5}{5!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E5%7D%7B5%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (1) + <img alt="\frac{x^6}{6!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E6%7D%7B6%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (0) + <img alt="\frac{x^7}{7!} " src="https://s0.wp.com/latex.php?latex=%5Cfrac%7Bx%5E7%7D%7B7%21%7D+&amp;bg=ffffff&amp;fg=666666&amp;s=2" /> (-1) + …</p>
+<p><img alt="= \dfrac{x}{1!} -\dfrac{x^3}{3!} + \dfrac{x^5}{5!} -\dfrac{x^7}{7!} + \ldots" src="https://s0.wp.com/latex.php?latex=%3D+%5Cdfrac%7Bx%7D%7B1%21%7D+-%5Cdfrac%7Bx%5E3%7D%7B3%21%7D+%2B+%5Cdfrac%7Bx%5E5%7D%7B5%21%7D+-%5Cdfrac%7Bx%5E7%7D%7B7%21%7D+%2B+%5Cldots&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= \displaystyle \sum_{n=0}^{\infty} \dfrac{(-1)^{n+1)}}{(2n-1)!} x^{2n-1}" src="https://s0.wp.com/latex.php?latex=%3D+%5Cdisplaystyle+%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D+%5Cdfrac%7B%28-1%29%5E%7Bn%2B1%29%7D%7D%7B%282n-1%29%21%7D+x%5E%7B2n-1%7D&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="f(x) = \cos x" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+%5Ccos+x&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>f(0) = 1</p>
+<p>f'(x) = -sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 0</p>
+<p>f”(x) = -cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”(0) = -1</p>
+<p>f”'(x) = sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f”'(0) = 0</p>
+<p>f(iv)(x) = cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(iv)(0) = 1</p>
+<p>f(v)(x) = -sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(v)(0) = 0</p>
+<p>f(vi)(x) = -cos x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(vi)(0) = -1</p>
+<p>f(vii)(x) = sin x <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f(vii)(0) = 0</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p><img alt="f(x) = 1 + \dfrac{x}{1!} (0) + \dfrac{x^2}{2!} (-1) + \dfrac{x^3}{3!} (0) + \dfrac{x^4}{4!} (1) + \dfrac{x^5}{5!} (0) + \dfrac{x^6}{6!} (-1) + \dfrac{x^7}{7!} (0) + \ldots" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+1+%2B+%5Cdfrac%7Bx%7D%7B1%21%7D+%280%29+%2B+%5Cdfrac%7Bx%5E2%7D%7B2%21%7D+%28-1%29+%2B+%5Cdfrac%7Bx%5E3%7D%7B3%21%7D+%280%29+%2B+%5Cdfrac%7Bx%5E4%7D%7B4%21%7D+%281%29+%2B+%5Cdfrac%7Bx%5E5%7D%7B5%21%7D+%280%29+%2B+%5Cdfrac%7Bx%5E6%7D%7B6%21%7D+%28-1%29+%2B+%5Cdfrac%7Bx%5E7%7D%7B7%21%7D+%280%29+%2B+%5Cldots&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= 1 -\dfrac{x^2}{2!} + \dfrac{x^4}{4!} -\dfrac{x^6}{6!} + \ldots" src="https://s0.wp.com/latex.php?latex=%3D+1+-%5Cdfrac%7Bx%5E2%7D%7B2%21%7D+%2B+%5Cdfrac%7Bx%5E4%7D%7B4%21%7D+-%5Cdfrac%7Bx%5E6%7D%7B6%21%7D+%2B+%5Cldots&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= \displaystyle \sum_{n=0}^{\infty} \dfrac{(-1)^{(n+1)}}{(2n-2)!} x^{2n-2}" src="https://s0.wp.com/latex.php?latex=%3D+%5Cdisplaystyle+%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D+%5Cdfrac%7B%28-1%29%5E%7B%28n%2B1%29%7D%7D%7B%282n-2%29%21%7D+x%5E%7B2n-2%7D&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="f(x) = \ln(x + 1)" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+%5Cln%28x+%2B+1%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>f(0) = ln(1) = 0</p>
+<p>f'(x) = (x + 1)-1 <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 1</p>
+<p>f”(x) = -1(x + 1)-2 <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = -1 = -1!</p>
+<p>f”'(x) = 2(x + 1)-3 <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 2 = 2!</p>
+<p>f(iv)(x) = -6(x + 1)-4 <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = -6 = -3!</p>
+<p>f(v) (x) = 24(x + 1)-5 <img alt="\rightarrow" src="https://s0.wp.com/latex.php?latex=%5Crightarrow&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> f'(0) = 24 = 4!</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p><img alt="f(x) = 0 + \dfrac{x}{1!} (1) + \dfrac{x^2}{2!} (-1!) + \dfrac{x^3}{3!} (2!) + \dfrac{x^4}{4!} (-3!) + \dfrac{x^5}{5!} (4!) +  \ldots" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+0+%2B+%5Cdfrac%7Bx%7D%7B1%21%7D+%281%29+%2B+%5Cdfrac%7Bx%5E2%7D%7B2%21%7D+%28-1%21%29+%2B+%5Cdfrac%7Bx%5E3%7D%7B3%21%7D+%282%21%29+%2B+%5Cdfrac%7Bx%5E4%7D%7B4%21%7D+%28-3%21%29+%2B+%5Cdfrac%7Bx%5E5%7D%7B5%21%7D+%284%21%29+%2B%C2%A0+%5Cldots&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= x -\dfrac{x^2}{2} + \dfrac{x^3}{3} -\dfrac{x^4}{4} + \dfrac{x^5}{5} -\ldots" src="https://s0.wp.com/latex.php?latex=%3D+x+-%5Cdfrac%7Bx%5E2%7D%7B2%7D+%2B+%5Cdfrac%7Bx%5E3%7D%7B3%7D+-%5Cdfrac%7Bx%5E4%7D%7B4%7D+%2B+%5Cdfrac%7Bx%5E5%7D%7B5%7D+-%5Cldots&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="= \displaystyle \sum_{n=1}^{\infty} \dfrac{(-1)^{n+1}}{n} x^n" src="https://s0.wp.com/latex.php?latex=%3D+%5Cdisplaystyle+%5Csum_%7Bn%3D1%7D%5E%7B%5Cinfty%7D+%5Cdfrac%7B%28-1%29%5E%7Bn%2B1%7D%7D%7Bn%7D+x%5En&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p><img alt="f(x) = \log(x + 1)" src="https://s0.wp.com/latex.php?latex=f%28x%29+%3D+%5Clog%28x+%2B+1%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /></p>
+<p>untuk fungsi <img alt="\log(x + 1)" src="https://s0.wp.com/latex.php?latex=%5Clog%28x+%2B+1%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" /> dengan basis 10, fungsi hampirannnya sama dengan fungsi <img alt="\ln(x + 1)" src="https://s0.wp.com/latex.php?latex=%5Cln%28x+%2B+1%29&amp;bg=ffffff&amp;fg=666666&amp;s=0" />.</p>
+<p><strong>Soal dan jawaban dalam bentuk code</strong></p>
+<p>buatlah program yang dapat mengekspansi bilangan e^2x dengan nilai x=4 hingga nilai menjadi kurang dari 0,001 bisa dibuat dengan listing program sebagai berikut.</p>
+<pre><code>import math
+
+x = 4
+check = 1
+a = 0
+b = 1
+
+while check &gt; 0.001 :
+    f_x = 0
+    f_y = 0
+    for i in range(a):
+        f_x += (2**i)*x**i/math.factorial(i)
+
+    for j in range(b):
+        f_y += (2**j)*x**j/math.factorial(j)
+
+    check = f_y - f_x
+    a+=1
+    b+=1
+    print('iterasi ke-',a,'= ',check)
+</code></pre>
+
+<p>output:</p>
+<pre><code>iterasi ke- 1 =  1.0
+iterasi ke- 2 =  8.0
+iterasi ke- 3 =  32.0
+iterasi ke- 4 =  85.33333333333333
+iterasi ke- 5 =  170.66666666666669
+iterasi ke- 6 =  273.0666666666666
+iterasi ke- 7 =  364.08888888888896
+iterasi ke- 8 =  416.1015873015872
+iterasi ke- 9 =  416.1015873015872
+iterasi ke- 10 =  369.8680776014112
+iterasi ke- 11 =  295.89446208112895
+iterasi ke- 12 =  215.195972422639
+iterasi ke- 13 =  143.46398161509296
+iterasi ke- 14 =  88.28552714774924
+iterasi ke- 15 =  50.448872655856576
+iterasi ke- 16 =  26.90606541645684
+iterasi ke- 17 =  13.45303270822842
+iterasi ke- 18 =  6.330838921519444
+iterasi ke- 19 =  2.8137061873417224
+iterasi ke- 20 =  1.184718394670199
+iterasi ke- 21 =  0.47388735786807956
+iterasi ke- 22 =  0.18052851728316455
+iterasi ke- 23 =  0.06564673355751438
+iterasi ke- 24 =  0.022833646454728296
+iterasi ke- 25 =  0.0076112154847578495
+iterasi ke- 26 =  0.0024355889549951826
+iterasi ke- 27 =  0.0007494119863622473
+</code></pre>
+
+<h1 id="materi-ii-numerical-solution">MATERI II Numerical Solution</h1>
+<p><strong>Penyelesaian persamaan non linier</strong></p>
+<ol>
+<li>Metode Tertutup</li>
+<li>Mencari akar pada range [a,b] tertentu</li>
+<li>Dalam range[a,b] dipastikan terdapat satu akar</li>
+<li>Hasil selalu konvergen → disebut juga metode konvergen</li>
+<li>
+<p>Contohnya Metode Tabel ,Metode Biseksi,Metode Regula Falsi</p>
+</li>
+<li>
+<p>Metode Terbuka</p>
+</li>
+<li>Diperlukan tebakan awal</li>
+<li>xn dipakai untuk menghitung xn+1</li>
+<li>Hasil dapat konvergen atau divergen</li>
+<li>Contohnya Metode Iterasi Sederhana, Metode Newton-Raphson, Metode Secant.</li>
+</ol>
+<h2 id="method-bisection">Method Bisection</h2>
+<p>Metode biseksi ini membagi range menjadi 2 bagian, dari dua bagian ini dipilih bagian mana yang mengandung akar sedangkan bagian yang tidak mengandung akar akan dibuang. Hal ini dilakukan berulang-ulang hingga diperoleh suatu akar persamaan.</p>
+<ol>
+<li>
+<p>Tentukan batas bawah (a) dan batas atas (b). Kemudian dihitung nilai tengah : c= (( a+b ))/2</p>
+</li>
+<li>
+<p>Dari nilai c ini perlu dilakukan pengecekan keberadaan akar. Secara matematik, suatu range terdapat akar persamaan bila f(a) dan f(b) berlawanan tanda atau dituliskan : f(a).f(b)&lt;0</p>
+</li>
+<li>
+<p>Setelah diketahui di bagian mana terdapat akar, maka batas bawah dan batas atas diperbarui sesuai dengan range dari bagian yang mempunyai akar.</p>
+</li>
+</ol>
+<p>Algoritma</p>
+<p>1.Definisikan fungsi f(x) yang akan dicari akarnya</p>
+<p>2.Tentukan nilai a dan b</p>
+<p>3.Tentukan toleransi e dan iterasi maksimum N</p>
+<p>4.Hitung f(a) dan f(b)</p>
+<p>5.Jika f(a).f(b)&gt;0 maka proses dihentikan karena tidak ada akar, bila tidak maka dilanjutkan</p>
+<p>6.Hitung x = (a+b)/2</p>
+<p>7.Hitung f(x)</p>
+<p>8.Bila f(x).f(a)&lt;0 maka b = x dan f(b)=f(x), bila tidak maka a=x dan f(a)=f(x)</p>
+<p>9.Jika |b-a|<e atau iterasi > iterasi maks maka proses dihentikan dan didapatkan akar x, bila tidak, ulangi langkah 6</p>
+<p><strong>Code Program</strong></p>
+<pre><code>Bisection
+def bis(a,b,n):
+    e = 0.001
+    fa = a**2-5*a+6
+    fb = b**2-5*b+6
+    if fa*fb&lt;0:
+        x = (a+b)/2
+        fx = x**2-5*x+6
+        if fa*fx&lt;0:
+            b = x
+        elif fx*fb&lt;0:
+            a = x
+        if abs(a-b)&lt;e:
+            print(&quot;Jumlah Iterasi : &quot;,n)
+            print(x)
+        else:
+            n+=1
+            print(&quot;iterasi ke-&quot;+str(n))
+            bis(a,b,n)
+    else:
+        if fa&lt;fb:
+            a-=0.1
+        elif fb&lt;fa:
+            b+=0.1
+        bis(a,b,n)
+
+a = float(input(&quot;Masukkan nilai a : &quot;))
+b = float(input(&quot;Masukkan nilai b : &quot;))
+bis(a,b,0)
+</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code>Masukkan nilai a : 1
+Masukkan nilai b : 2.3
+iterasi ke-1
+iterasi ke-2
+iterasi ke-3
+iterasi ke-4
+iterasi ke-5
+iterasi ke-6
+iterasi ke-7
+iterasi ke-8
+iterasi ke-9
+iterasi ke-10
+Jumlah Iterasi :  10
+1.9997558593749996
+</code></pre>
+
+<h2 id="metode-regula-falsi">Metode Regula Falsi</h2>
+<p><strong>Metode regula falsi</strong> adalah</p>
+<ol>
+<li>Metode pencarian akar persamaan dengan memanfaatkan kemiringan dan selisih tinggi dari dua titik batas range.</li>
+<li>Dua titik a dan b pada fungsi f(x) digunakan untuk mengestimasi posisi c dari akar interpolasi linier.</li>
+<li>Dikenal dengan metode False Position</li>
+<li>Metode ini juga merupakan penyempurna dari metode bisection</li>
+</ol>
+<p><strong>Rumus c dari regula falsi :</strong></p>
+<p>c=a−f(a)(b−a)f(b)−f(a)c=a−f(a)(b−a)f(b)−f(a)</p>
+<p><strong>Algoritma metode regula falsi</strong></p>
+<ol>
+<li>Definisikan fungsi f(x) yang akan dicari akarnya</li>
+<li>tentukan batas atas dan batas bawah</li>
+<li>tentukan nilai toleransi dan iterasi maksimum</li>
+<li>hitung f(a) dan f(b)</li>
+<li>jika f(a)*f(b)&gt;0 maka proses dihentikan karena tidak ada akar</li>
+<li>jika f(a)*f(b)&lt;0 maka.................</li>
+<li>hitung nilai cc=(a+b)2c=(a+b)2</li>
+<li>hitung nilai f(c)</li>
+<li>Bila f(c).f(a)&lt;0 maka b = c dan f(b)=f(c), bila tidak maka a=c dan f(a)=f(c)</li>
+<li>Jika |b-a|&lt; e atau iterasi &gt; iterasi maks maka proses dihentikan dan didapatkan akar x, bila tidak, ulangi langkah 6</li>
+</ol>
+<p><strong>Code Program</strong></p>
+<pre><code>#Regula-Falsi
+def Regfal(a,b,n):
+    e = 0.001
+    fa = a**2-5*a+6
+    fb = b**2-5*b+6
+    if fa*fb&lt;0:
+        n+=1
+        print(&quot;iterasi ke-&quot;+str(n))
+        x = ((a*abs(fb))+(b*abs(fa)))/(abs(fa)+abs(fb))
+        fx = x**2-5*x+6
+        if fa*fx&lt;0:
+            b = x
+        else:
+            a = x
+        if abs(a-b)&lt;e:
+            print(x)
+        else:
+            Regfal(a,b,n)
+    else:
+        if fa&lt;fb:
+            a-=0.1
+        else:
+            b+=0.1
+        Regfal(a,b,n)
+
+a = float(input(&quot;Masukkan interval a : &quot;))
+b = float(input(&quot;Masukkan interval b : &quot;))
+Regfal(a,b,0)
+</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code>Masukkan interval a : 1
+Masukkan interval b : 2.1
+iterasi ke-1
+iterasi ke-2
+iterasi ke-3
+iterasi ke-4
+iterasi ke-5
+iterasi ke-6
+iterasi ke-7
+iterasi ke-8
+iterasi ke-9
+iterasi ke-10
+iterasi ke-11
+iterasi ke-12
+iterasi ke-13
+iterasi ke-14
+iterasi ke-15
+iterasi ke-16
+iterasi ke-17
+iterasi ke-18
+iterasi ke-19
+iterasi ke-20
+iterasi ke-21
+iterasi ke-22
+iterasi ke-23
+iterasi ke-24
+iterasi ke-25
+iterasi ke-26
+iterasi ke-27
+iterasi ke-28
+iterasi ke-29
+iterasi ke-30
+iterasi ke-31
+iterasi ke-32
+iterasi ke-33
+iterasi ke-34
+iterasi ke-35
+iterasi ke-36
+iterasi ke-37
+iterasi ke-38
+iterasi ke-39
+iterasi ke-40
+iterasi ke-41
+iterasi ke-42
+iterasi ke-43
+iterasi ke-44
+iterasi ke-45
+iterasi ke-46
+iterasi ke-47
+2.0000000000000004
+</code></pre>
+
+<h2 id="metode-newton-raphson">Metode Newton Raphson</h2>
+<p>Dalam analisis numerik, metode Newton / Newton-Raphson yang mendapat nama dari Isaac Newton dan Joseph Rapshon, merupakan metode yang paling dikenal untuk mencari akar suatu fungsi <em>f(x)</em> dengan pendekatan satu titik dimana fungsi <em>f(x)</em> mempunyai turunan.</p>
+<p>Prosedur Metode Newton :</p>
+<p>menentukan <em>x_0</em> sebagai titik awal, kemudian menarik garis lurus yang menyinggung titik <em>f(x_0)</em> . Hal ini berakibat garis <em>I</em> memotong sumbu <em>x</em> di titik <em>x_1</em> Setelah itu diulangi langkah sebelumnya tapi sekarang <em>x_1</em> dianggap sebagai titik awalnya. Dari mengulang langkah-langkah sebelumnya akan mendapatkan <em>x_2 , x_3 , ... , x_n</em> dengan <em>x_n</em> yang diperoleh adalah bilangan riil yang merupakan akar atau mendekati akar yang sebenarnya.</p>
+<p>persamaan garis <em>I</em> : y - y_0 = m(x - x_0)y−f(x0)=f′(x0)(x−x0)y−f(x0)=f′(x0)(x−x0)<em>x_1</em> perpotongan garis <em>I</em> dengan sumbu - <em>x</em>0−f(x0)=f′(x0)(x−x0)0−f(x0)=f′(x0)(x−x0)<em>y = 0</em> dan <em>x = x_1</em> maka koordinat titik (<em>x_1</em>,0)−f(x0)f′(x0)=(x1−x0)−f(x0)f′(x0)=(x1−x0)sehingga di dapat sebuah rumus :f′(xn)=f(xn)−0f′(xn)−xn+1f′(xn)=f(xn)−0f′(xn)−xn+1atau dapat diatur kembali menjadi :x1=x0−f(x0)f′(x0),x2=x1−f(x1)f′(x1),...,xn+1=xn−f(xn)f′(xn)x1=x0−f(x0)f′(x0),x2=x1−f(x1)f′(x1),...,xn+1=xn−f(xn)f′(xn)</p>
+<p><strong>Program</strong></p>
+<pre><code>#Newton-Raphson
+x = float(input(&quot;Masukkan nilai awal x : &quot;))
+n = 0
+e = 0.001
+while n&gt;=0:
+    print(&quot;iterasi saat X&quot;+str(n))
+    fx = x**2-5*x+6
+    fax = 2*x-5
+    x1 = x - (fx/fax)
+    if abs(x1-x)&lt;e or n&gt;=100:
+        print(&quot;Jumlah iterasi : &quot;,n+1)
+        print(x)
+        break
+    else:
+        x=x1
+    n+=1
+</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code>Masukkan nilai awal x : 2.4
+iterasi saat X0
+iterasi saat X1
+iterasi saat X2
+iterasi saat X3
+iterasi saat X4
+iterasi saat X5
+Jumlah iterasi :  6
+1.9999976821746035
+</code></pre>
+
+<h2 id="metode-secant">Metode Secant</h2>
+<p>Metode Newton Raphson memerlukan perhitungan turunan fungsi f’(x). Tidak semua fungsi mudah dicari turunannya terutama fungsi yang bentuknya rumit. Turunan fungsi dapat dihilangkan dengan cara menggantinya dengan bentuk lain yang ekivalen.Modifikasi metode Newton Raphson dinamakan metode Secant.</p>
+<p><strong>Rumus Metode Secant</strong></p>
+<p>xr+1=xr−f(xr)(xr−xr−1)f(xr)−xr+1xr+1=xr−f(xr)(xr−xr−1)f(xr)−xr+1</p>
+<p><strong>Algoritma Metode Secant</strong></p>
+<ol>
+<li>Definisikan f(x)</li>
+<li>Definisikan toleransi error e dan iterasi maksimum (n)</li>
+<li>Masukan dua nilai pendekatan awal yang diantaranya terdapat akar yaitu x0 dan x1 ,sebaiknya gunakan metode tabel untuk menjamin titik pendekatanya adalah titik pendekatan yang konvergensinya pada akar persamaan yang diharapkan.</li>
+<li>Hitung f(x0 ) dan f(x1)</li>
+<li>Untuk iterasi 1 s/d N :xr+1=xr−f(xr)(xr−xr−1)f(xr)−xr+1xr+1=xr−f(xr)(xr−xr−1)f(xr)−xr+1</li>
+<li>Hitungf(xr+1)Hitungf(xr+1)</li>
+</ol>
+<p><strong>Code Program</strong></p>
+<pre><code>#Secant
+def Secant(a,b,n):
+    e = 0.001
+    fa = a**2-5*a+6
+    fb = b**2-5*b+6
+    x = a-((b-a)/(fb-fa))*fa
+    fx = x**2-5*x+6
+    n+=1
+    print(&quot;iterasi ke-&quot;+str(n))
+    if abs(a-b)&lt;e:
+        print(&quot;Jumlah iterasi :&quot;,n)
+        print(x)
+    else:
+        a=b
+        b=x
+        Secant(a,b,n)
+a = float(input(&quot;Masukkan nilai a : &quot;))
+b = float(input(&quot;Masukkan nilai b : &quot;))
+n = 0
+Secant(a,b,0)
+</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code>Masukkan nilai a : 1
+Masukkan nilai b : 1.5
+iterasi ke-1
+iterasi ke-2
+iterasi ke-3
+iterasi ke-4
+iterasi ke-5
+iterasi ke-6
+Jumlah iterasi : 6
+1.9999999975499005
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1
+Build Date UTC : 2020-03-11 17:34:31
+-->
